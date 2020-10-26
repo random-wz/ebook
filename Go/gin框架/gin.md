@@ -1,6 +1,66 @@
-> Gin 框架是 Go 语言 Web 开发中比较常用的框架，Gin 框架具有很高的灵活性和扩展性，用户可以根据项目需要编写中间件，Gin 框架也有强大的路由机制，我们可以按需设计路由。
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-[toc]
+- [一、安装 Gin 框架](#%E4%B8%80%E5%AE%89%E8%A3%85-gin-%E6%A1%86%E6%9E%B6)
+    - [1.  安装](#1--%E5%AE%89%E8%A3%85)
+    - [2. 创建项目](#2-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE)
+    - [3. Hello World](#3-hello-world)
+      - [3.1 创建配置文件](#31-%E5%88%9B%E5%BB%BA%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
+      - [3.2 加载配置文件](#32-%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
+      - [3.3 设置路由](#33-%E8%AE%BE%E7%BD%AE%E8%B7%AF%E7%94%B1)
+      - [3.4 启动服务](#34-%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1)
+      - [3.5 访问 Dashboard](#35-%E8%AE%BF%E9%97%AE-dashboard)
+- [二、编写路由](#%E4%BA%8C%E7%BC%96%E5%86%99%E8%B7%AF%E7%94%B1)
+    - [1. 编写路由](#1-%E7%BC%96%E5%86%99%E8%B7%AF%E7%94%B1)
+      - [1.1 静态路由](#11-%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1)
+      - [1.2 带参数的路由](#12-%E5%B8%A6%E5%8F%82%E6%95%B0%E7%9A%84%E8%B7%AF%E7%94%B1)
+      - [1.3 带星号的路由](#13-%E5%B8%A6%E6%98%9F%E5%8F%B7%E7%9A%84%E8%B7%AF%E7%94%B1)
+    - [2. 路由分组](#2-%E8%B7%AF%E7%94%B1%E5%88%86%E7%BB%84)
+    - [3. 解决跨域问题](#3-%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98)
+- [三、获取 Request 中的数据](#%E4%B8%89%E8%8E%B7%E5%8F%96-request-%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE)
+    - [1. 获取路径参数](#1-%E8%8E%B7%E5%8F%96%E8%B7%AF%E5%BE%84%E5%8F%82%E6%95%B0)
+      - [1.1 带参数的路由](#11-%E5%B8%A6%E5%8F%82%E6%95%B0%E7%9A%84%E8%B7%AF%E7%94%B1)
+      - [1.2 带星号的路由](#12-%E5%B8%A6%E6%98%9F%E5%8F%B7%E7%9A%84%E8%B7%AF%E7%94%B1)
+    - [2. 获取Query 中的数据](#2-%E8%8E%B7%E5%8F%96query-%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE)
+    - [3. 获取 Body 中的数据](#3-%E8%8E%B7%E5%8F%96-body-%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE)
+      - [3.1 表单](#31-%E8%A1%A8%E5%8D%95)
+      - [3.2 非表单](#32-%E9%9D%9E%E8%A1%A8%E5%8D%95)
+    - [4. 请求参数校验](#4-%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C)
+      - [4.1 绑定校验](#41-%E7%BB%91%E5%AE%9A%E6%A0%A1%E9%AA%8C)
+      - [4.2 自定义验证器](#42-%E8%87%AA%E5%AE%9A%E4%B9%89%E9%AA%8C%E8%AF%81%E5%99%A8)
+      - [跨字段验证](#%E8%B7%A8%E5%AD%97%E6%AE%B5%E9%AA%8C%E8%AF%81)
+    - [5. 通过 Bind 获取请求参数](#5-%E9%80%9A%E8%BF%87-bind-%E8%8E%B7%E5%8F%96%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0)
+      - [5.1 MustBind](#51-mustbind)
+      - [5.2 ShouldBind](#52-shouldbind)
+    - [6. 上传文件](#6-%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6)
+      - [6.1 单文件上传](#61-%E5%8D%95%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0)
+      - [6.2 多文件上传](#62-%E5%A4%9A%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0)
+- [四、编写 Response](#%E5%9B%9B%E7%BC%96%E5%86%99-response)
+    - [1.  返回 JSON 数据](#1--%E8%BF%94%E5%9B%9E-json-%E6%95%B0%E6%8D%AE)
+    - [2. 返回 Html 页面](#2-%E8%BF%94%E5%9B%9E-html-%E9%A1%B5%E9%9D%A2)
+      - [2.1 返回HTML页面](#21-%E8%BF%94%E5%9B%9Ehtml%E9%A1%B5%E9%9D%A2)
+      - [2.2 自定义模板渲染](#22-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E6%9D%BF%E6%B8%B2%E6%9F%93)
+      - [2.3  自定义分隔符](#23--%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%86%E9%9A%94%E7%AC%A6)
+      - [2.4 自定义模板功能](#24-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E6%9D%BF%E5%8A%9F%E8%83%BD)
+    - [3. 下载文件](#3-%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6)
+    - [4. 其他方法](#4-%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95)
+    - [5. 重定向](#5-%E9%87%8D%E5%AE%9A%E5%90%91)
+- [五、通过 Swagger 生成接口文档](#%E4%BA%94%E9%80%9A%E8%BF%87-swagger-%E7%94%9F%E6%88%90%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3)
+    - [1. 什么是 Swagger](#1-%E4%BB%80%E4%B9%88%E6%98%AF-swagger)
+    - [2. Swagger 安装](#2-swagger-%E5%AE%89%E8%A3%85)
+      - [2.1 安装 swag 命令](#21-%E5%AE%89%E8%A3%85-swag-%E5%91%BD%E4%BB%A4)
+      - [2.2 安装go-swagger](#22-%E5%AE%89%E8%A3%85go-swagger)
+    - [3. 接口注释](#3-%E6%8E%A5%E5%8F%A3%E6%B3%A8%E9%87%8A)
+      - [3.1 接口描述相关的注释方法](#31-%E6%8E%A5%E5%8F%A3%E6%8F%8F%E8%BF%B0%E7%9B%B8%E5%85%B3%E7%9A%84%E6%B3%A8%E9%87%8A%E6%96%B9%E6%B3%95)
+      - [3.2 接口请求相关的注释方法](#32-%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E7%9B%B8%E5%85%B3%E7%9A%84%E6%B3%A8%E9%87%8A%E6%96%B9%E6%B3%95)
+      - [3.3 返回值相关的注释方法](#33-%E8%BF%94%E5%9B%9E%E5%80%BC%E7%9B%B8%E5%85%B3%E7%9A%84%E6%B3%A8%E9%87%8A%E6%96%B9%E6%B3%95)
+    - [4. 生成文档](#4-%E7%94%9F%E6%88%90%E6%96%87%E6%A1%A3)
+    - [5. 举个例子](#5-%E4%B8%BE%E4%B8%AA%E4%BE%8B%E5%AD%90)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+> Gin 框架是 Go 语言 Web 开发中比较常用的框架，Gin 框架具有很高的灵活性和扩展性，用户可以根据项目需要编写中间件，Gin 框架也有强大的路由机制，我们可以按需设计路由。
 
 ##  一、安装 Gin 框架
 
