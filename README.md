@@ -21,4 +21,4 @@
 
 邮箱: &emsp;1214469162@qq.com
 
-![Up](images/dog.jpg)
+![Up](img/dog.jpg)
