@@ -1,13 +1,10 @@
 ## 不积跬步无以至千里，不积小流无以成江海。
 
-
-
 ### 说明
-> 这里记录Python学习相关文档。
+> 这里记录监控系统学习相关的技术文档。
 
-- Python基础教程
-- Django框架
-
+- [Open-falcon](open-falcon/README.md)
+- Prometheus
 
 作者: &emsp;random_wz
 
