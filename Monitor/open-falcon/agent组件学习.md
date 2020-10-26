@@ -153,7 +153,7 @@ F --> G(采集插件信息并上报)
 
 我们可以看到，插件启动是通过 hbs 同步过来的，而 hbs 中的插件信息是需要在 partal 上面进行配置的：
 
-![image-20200902114211186](C:\Users\random\Documents\Good Good Study, Day Day Up\博客\open-falcon\agent-plugin.png)
+![image-20200902114211186](imgs/agent-plugin.png)
 
 在 partal 上只需要配置插件的目录，在 open-falcon 系统中，插件其实就是用户编写的信息采集脚本，这些脚本保存在 agent 工作目录的 plugin 目录下面，通过在 partal 中配置启动的插件目录实现插件启用，插件返回的数据格式是有限制的，必须满足下面的格式：
 

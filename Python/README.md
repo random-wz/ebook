@@ -5,7 +5,7 @@
 ### 说明
 > 这里记录Python学习相关文档。
 
-- Python基础教程
+- [Python基础教程](syntax.md)
 - Django框架
 
 

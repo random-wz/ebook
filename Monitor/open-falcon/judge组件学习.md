@@ -122,7 +122,7 @@ type Strategy struct {
 
 ##### 4. falcon_protal 数据库表结构
 
-![falcon_portal](C:\Users\random\Documents\Good Good Study, Day Day Up\博客\open-falcon\falcon_portal.png)
+![falcon_portal](imgs/falcon_portal.png)
 
 
 
@@ -346,7 +346,7 @@ func cleanStale() {
 
 下图是 open-falcon 自带的 Dashboard 中策略配置的截图：
 
-![image-20200827151356105](C:\Users\random\AppData\Roaming\Typora\typora-user-images\image-20200827151356105.png)
+![image-20200827151356105](imgs/add_stragey.png)
 
 在图中我们可以看到，告警策略中需要配置一下几类监控信息：
 
@@ -364,7 +364,7 @@ func cleanStale() {
 
 下图为策略表达式的配置：
 
-![image-20200827165308503](C:\Users\random\AppData\Roaming\Typora\typora-user-images\image-20200827165308503.png)
+![image-20200827165308503](imgs/strategy.png)
 
 可以看到策略表达式和策略很像，唯一的区别就是，策略表达式可以针对 tag 配置监控策略，而策略模板精确到具体的 Metric 。两者相比，表达式比较简洁，在结合 tag 时可以使用策略表达式。当无法区分类别时，比如所有监控项都没有加tag，只有进行人工分类，即使用”机器分组”，然后将”策略模板”绑定到”机器分组”。
 

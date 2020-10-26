@@ -4,7 +4,7 @@
 
 ### 说明
 > 这里记录运维相关的学习文档。
-
+- [influxDB数据库](influxdb.md)
 - Shell编程
 - Linux服务器运维
 
