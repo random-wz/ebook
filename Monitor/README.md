@@ -4,7 +4,8 @@
 > 这里记录监控系统学习相关的技术文档。
 
 - [Open-falcon](open-falcon/README.md)
-- Prometheus
+- [Prometheus](Prometheus/README.md)
+- Zabbix
 
 作者: &emsp;random_wz
 

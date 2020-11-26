@@ -5,7 +5,7 @@
 ### 说明
 > 这里记录云计算相关技术的学习文档。
 
-- kubernetes
+- [Kubernetes](kubernetes/k8s.md)
 - docker
 
 
