@@ -7,7 +7,7 @@
 - SQL学习
 - MySQL学习
 - [InfluxDB学习](influxdb.md)
-- Redis学习
+- [Redis学习](redis.md)
 
 作者: &emsp;random_wz
 

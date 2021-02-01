@@ -224,6 +224,6 @@ time                host    region  value
 
 
 
-参考文档：
+**Reference:**
 
 - https://docs.influxdata.com/influxdb/v2.0/

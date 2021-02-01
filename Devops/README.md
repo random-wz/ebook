@@ -7,6 +7,7 @@
 - [Shell编程](shell/README.md)
 - [Linux](Linux/README.md)
 - [服务器安装管理大全](server/README.md)
+- [Windows bat编程](bat/bat.md)
 
 
 作者: &emsp;random_wz

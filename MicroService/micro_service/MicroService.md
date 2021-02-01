@@ -221,7 +221,7 @@ BFF可以认为是一种适配服务，将后端的微服务进行适配（主�
 
 
 
-CQRS：将应用程序分为两部分：命令端和查询端。
+**CQRS**（ Command Query Responsibility Segregation）：将应用程序分为两部分：命令端和查询端。
 
 - 命令端负责处理程序创建、更新、删除请求，并在数据更改时发出事件。
 - 查询端通过针对一个或者多个物化视图执行查询来处理查询，这些物化视图通过订阅数据更改时发出的事件流而保持最新。
@@ -240,15 +240,31 @@ API Gateway (Biz Auth)-> BFF(JWT) -> Service(Request Args)
 - Half Trust（知道你是谁，通信不加密）
 - Zero Trust（不知道你是谁，不加密）
 
-### 四、gRPC & 服务发现
+### 四、gRPC 和 服务发现
 
-#### 1.  gRPC
+#### RPC通信
+
+#### 1.  什么是 gRPC 
+
+**gRPC 简单介绍：**
+
+ gRPC can use protocol buffers as both its Interface Definition Language (**IDL**) and as its underlying message interchange format.
+
+
+
+**gRPC 核心理念：**
+
+以上内容翻译自，**gRPC** 官网的介绍，关于 **gRPC** 在的更多详细介绍可以参考其[官网文档](https://www.grpc.io/docs/what-is-grpc/introduction/)。
+
+
 
 - 语言中立
 - 轻量级、高性能：序列化支持PB（Protocol Buffer）
 - IDL 基于文件方式定义服务
 - 设计理念
 - 移动端：基于标准的HTTP2设计
+
+
 
 #### 2. gRPC 健康检查
 
@@ -275,7 +291,7 @@ service mesh
 
 #### 1. 多集群
 
-LO服务，从下面角度思考多i集群必要性：
+LO服务，从下面角度思考多集群必要性：
 
 - 从单一集群考虑，多个节点保证可用性，通常采用N+2的方式来冗余节点
 - 从单一集群故障带来的影响面角度考虑冗余多套集群
