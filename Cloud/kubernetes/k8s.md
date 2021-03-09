@@ -17,10 +17,7 @@ kubectl describe deployment nginx-deployment
 
 ```bash
 kubectl get replicaset
-
 ```
-
-
 
 副本已经启动完成，我们查看 replicaset 的详细信息：
 
@@ -50,8 +47,6 @@ kubectl->deployment->replicaset->po
 ```
 
 #### 2. 通过配置文件创建 Deployment
-
-
 
 #### 3. Deployment 配置文件简介
 
