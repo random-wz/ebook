@@ -1239,8 +1239,6 @@ Swagger 是一个规范和完整的框架，用于生成、描述、调用和可
 
 总体目标是使客户端和文件系统作为服务器以同样的速度来更新。文件的方法、参数和模型紧密集成到服务器端的代码，允许 API 来始终保持同步。Swagger 让部署管理和使用功能强大的 API 从未如此简单。
 
-
-
 #### 2. Swagger 安装
 
 ##### 2.1 安装 swag 命令
@@ -1309,7 +1307,7 @@ go get -u github.com/swaggo/gin-swagger
 
 ##### 3.3 返回值相关的注释方法
 
-- Success 成功相应返回值格式 return code`,`{param type}`,`data type`,`comment
+- Success 成功相应返回值格式 `return code`,`{param type}`,`data type`,`comment
 
   ```go
   // @Success 200  {string} json "{"code":200,"data":{},"msg":"ok"}"
@@ -1317,7 +1315,7 @@ go get -u github.com/swaggo/gin-swagger
 
   
 
-- Failure 错误响应返回值格式 return code`,`{param type}`,`data type`,`comment
+- Failure 错误响应返回值格式 `return code`,`{param type}`,`data type`,`comment
 
   ```go
   // @Failure 500  {string} json "{"code":500,"data":{},"msg":"ok"}"
