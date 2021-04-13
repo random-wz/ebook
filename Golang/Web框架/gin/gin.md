@@ -276,9 +276,9 @@ func Dashboard(c *gin.Context) {
 
 v1.DashBoard 方法是一个 `type HandlerFunc func(*Context)` 类型的函数，用来处理请求，因此我们定义路由的时候需要注意三个地方：
 
-- [x] 请求的方法：GET、POST、DELETE、 PATCH 、PUT 、OPTIONS 、HEAD
-- [x] URL 地址
-- [x] 路由处理函数
+- [ ] 请求的方法：GET、POST、DELETE、 PATCH 、PUT 、OPTIONS 、HEAD
+- [ ] URL 地址
+- [ ] 路由处理函数
 
 ##### 1.1 静态路由
 
