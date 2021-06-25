@@ -1,4 +1,4 @@
-再我们平时使用 RHEL 系列 Linux 操作系统的时候，安装软件包通常需要安装一个 `epel-release` 的软件包，那这个包有什么用呢？
+在我们平时使用 RHEL 系列 Linux 操作系统的时候，安装软件包通常需要安装一个 `epel-release` 的软件包，那这个包有什么用呢？
 
 EPEL是由 Fedora 社区打造，为 RHEL 及衍生发行版如 CentOS、Scientific Linux 等提供高质量软件包的项目。装上了 EPEL之后，就相当于添加了一个第三方源。官方的rpm repository提供的rpm包也不够丰富，很多时候需要自己编译那太辛苦了，而EPEL恰恰可以解决这两方面的问题。
 
